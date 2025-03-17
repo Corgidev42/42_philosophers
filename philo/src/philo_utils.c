@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:49:45 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 14:55:38 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:21:42 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,12 @@ void	cleanup(t_data *data)
 {
 	int	i;
 
-	for (i = 0; i < data->num_philos; i++)
+	i = 0;
+	while (i < data->num_philos)
+	{
 		pthread_mutex_destroy(&data->forks[i]);
+		i++;
+	}
 	pthread_mutex_destroy(&data->print_mutex);
 	pthread_mutex_destroy(&data->simulation_mutex);
 	free(data->forks);
