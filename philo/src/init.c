@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:49:36 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 15:00:51 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:02:04 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@
  */
 static void	parse_arguments(t_data *data, int argc, char **argv)
 {
-	data->num_philos = atoi(argv[1]);
-	data->time_to_die = atol(argv[2]);
-	data->time_to_eat = atol(argv[3]);
-	data->time_to_sleep = atol(argv[4]);
+	data->num_philos = ft_atoi(argv[1]);
+	data->time_to_die = ft_atoi(argv[2]);
+	data->time_to_eat = ft_atoi(argv[3]);
+	data->time_to_sleep = ft_atoi(argv[4]);
 	data->must_eat_count = -1;
 	if (argc == 6)
-		data->must_eat_count = atoi(argv[5]);
+		data->must_eat_count = ft_atoi(argv[5]);
 	data->simulation_stop = 0;
 	data->start_time = get_timestamp();
 }

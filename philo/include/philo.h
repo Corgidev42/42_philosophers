@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:48:15 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 15:32:23 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:01:18 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ struct					s_data
 	pthread_mutex_t		print_mutex;
 	pthread_mutex_t		simulation_mutex;
 };
+
+
+int	ft_atoi(const char *str);
 
 // --------------------- philo_utils.c ------------------------------------- //
 
