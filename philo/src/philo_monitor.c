@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:50:46 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 16:19:29 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:52:50 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ static int	check_all_done(t_data *data)
 	int	i;
 
 	i = 0;
-	printf("%d\n", data->must_eat_count);
 	if (data->must_eat_count == -1)
 		return (0);
 	while (i < data->num_philos)
 	{
+		// printf("%d\n", data->philos[i].meals_eaten);
 		if (data->philos[i].meals_eaten < data->must_eat_count)
 			return (0);
 		i++;
@@ -95,7 +95,7 @@ void	*monitor_routine(void *arg)
 			return (NULL);
 		if (check_all_done(data))
 			return (NULL);
-		precise_sleep(1000);
+		precise_sleep(1);
 	}
 	return (NULL);
 }

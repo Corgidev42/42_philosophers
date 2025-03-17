@@ -4,6 +4,7 @@ IS_LIBFT ?= false
 # 🛠 Compilateur et flags
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
+CFLAGS = 
 LDFLAGS =
 
 # 🏆 Nom du projet
