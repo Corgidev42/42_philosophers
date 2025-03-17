@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:56:58 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 15:08:24 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:55:44 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	perform_cycle(t_philo *philo, int left, int right)
 	return (0);
 }
 
-/* Fonction principale du philosophe */
 void	*philosopher_routine(void *arg)
 {
 	t_philo	*philo;
