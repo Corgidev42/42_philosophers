@@ -6,14 +6,13 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 11:48:15 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 15:12:32 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:32:23 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include "libft.h"
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>

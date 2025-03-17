@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:49:45 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 15:21:42 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:33:23 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_action(t_data *data, int id, const char *action)
 {
 	pthread_mutex_lock(&data->print_mutex);
 	if (!data->simulation_stop)
-		ft_printf("%d %d %s\n", get_time_since(data->start_time), id, action);
+		printf("%ld %d %s\n", get_time_since(data->start_time), id, action);
 	pthread_mutex_unlock(&data->print_mutex);
 }
 

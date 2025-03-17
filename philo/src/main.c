@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:49:38 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/17 15:03:05 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:32:53 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	check_args(int argc, char **argv)
 {
 	if (argc != 5 && argc != 6)
 	{
-		ft_printf("Usage: %s number_of_philosophers \
+		printf("Usage: %s number_of_philosophers \
 			time_to_die time_to_eat time_to_sleep  \
 			[number_of_times_each_philosopher_must_eat]\n",
 			argv[0]);
@@ -117,17 +117,17 @@ int	main(int argc, char **argv)
 		return (1);
 	if (init_data(&data, argc, argv))
 	{
-		ft_printf("Error initializing data\n");
+		printf("Error initializing data\n");
 		return (1);
 	}
 	if (create_philosopher_threads(&data))
 	{
-		ft_printf("Error creating thread\n");
+		printf("Error creating thread\n");
 		return (1);
 	}
 	if (create_monitor_thread(&data, &monitor))
 	{
-		ft_printf("Error creating monitor thread\n");
+		printf("Error creating monitor thread\n");
 		return (1);
 	}
 	join_all_threads(&data, monitor);
