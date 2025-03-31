@@ -1,103 +1,100 @@
-# Philosophers - I never thought philosophy would be so deadly
+# Philosophers 🍝 - Threads and Mutexes in C
 
 ## 📌 Description
 
-**Philosophers** is a simulation project written in **C** that implements the classic Dining Philosophers problem using threads and mutexes. In this simulation, a group of philosophers sits around a circular table. Each philosopher alternates between eating, sleeping, and thinking. To eat, a philosopher must pick up two forks—one to their left and one to their right—while ensuring proper synchronization to avoid deadlocks and data races.
+**Philosophers** is a project developed in **C**, demonstrating the fundamentals of threading, synchronization, and mutexes. It simulates the classic synchronization problem known as **"Dining Philosophers"**, highlighting issues like resource contention and avoiding race conditions.
+
+The simulation involves philosophers who alternate between three states:
+
+- 🍝 **Eating**
+- 💤 **Sleeping**
+- 💭 **Thinking**
+
+Each philosopher needs two forks (mutex-protected resources) to eat. The goal: No philosopher should starve!
 
 ---
 
 ## 🎮 Features
 
-- **Multithreaded simulation** using POSIX threads
-- **Mutex-protected fork access** to prevent race conditions and deadlocks
-- **Accurate time tracking** for philosopher actions and starvation detection
-- **Customizable parameters** through command-line arguments
-- **Real-time logging** of actions (fork pickup, eating, sleeping, thinking, death)
-- **Strict adherence** to the 42 School coding norm
-
----
-
-## 🚀 Command-Line Arguments
-
-The program accepts the following arguments:
-
-1. `number_of_philosophers` – Number of philosophers (and forks).
-2. `time_to_die` (in milliseconds) – Maximum time a philosopher can go without eating before dying.
-3. `time_to_eat` (in milliseconds) – Duration a philosopher spends eating.
-4. `time_to_sleep` (in milliseconds) – Duration a philosopher spends sleeping.
-5. `[number_of_times_each_philosopher_must_eat]` (optional) – If provided, the simulation ends when all philosophers have eaten at least this many times.
+- 🔀 **Multi-threaded simulation** using `pthread`
+- 🔒 **Mutex synchronization** to protect shared resources (forks)
+- 🕒 **Precise timing** to ensure accurate simulation (milliseconds precision)
+- 📝 **Detailed logs** of philosopher states and actions
+- 🚨 **Death detection** and graceful termination
+- 📈 **Optional meal-count limit** to control simulation duration
+- ❌ **Robust error handling and input validation**
 
 ---
 
 ## 🛠 Compilation and Execution
 
+### 🔧 **Compilation**
 
-### 🔧 Compilation
+Compile the project using:
 
 ```sh
 make
 ```
 
+### ▶️ **Execution**
 
-⸻
+Execute the simulation with the following syntax:
 
-### ▶️ Execution
-
-Run the program by passing the required arguments:
-
+```sh
 ./philo number_of_philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+```
+
+- `number_of_philosophers`: Number of philosopher threads
+- `time_to_die`: Time in milliseconds before a philosopher dies without eating
+- `time_to_eat`: Duration in milliseconds each philosopher spends eating
+- `time_to_sleep`: Duration in milliseconds each philosopher spends sleeping
+- `[number_of_times_each_philosopher_must_eat]` *(optional)*: How many times each philosopher must eat before simulation stops
 
 Example:
 
 ```sh
-./philo 5 800 200 200 7
+./philo 5 800 200 200
 ```
-	•	5 philosophers, 800ms time to die, 200ms time to eat, 200ms time to sleep, and the simulation stops when each philosopher has eaten at least 7 times.
 
-⸻
-
+---
 
 ## 📂 Project Structure
+
 ```
 42_philosophers/
 ├── philo/
 │   ├── include/
-│   │   └── philo.h               # Main header file with prototypes and structures
-│   ├── src/
-│   │   ├── init.c                # Initialization logic
-│   │   ├── main.c                # Entry point (main function)
-│   │   ├── philo_monitor.c       # Monitoring thread logic
-│   │   ├── philo_routine.c       # Philosopher routine (eating, sleeping, thinking)
-│   │   ├── philo_routine_tools.c # Helper functions for philosopher routine
-│   │   └── philo_utils.c         # Utility functions (time tracking, printing, etc.)
-├── Makefile                      # Compilation instructions
-├── .gitignore                    # Git ignore rules
-├── errors_log                    # Potential log file for errors
-├── README.md                     # Project documentation
-├── start.sh                      # Script to launch or test the project
-└── Sujet en PDF.pdf             # Project instructions in PDF
+│   │   └── philo.h                 # Main header with definitions
+│   └── src/
+│       ├── init.c                  # Initialization of data structures and mutexes
+│       ├── main.c                  # Program entry point and thread management
+│       ├── philo_monitor.c         # Monitoring philosopher states and termination
+│       ├── philo_routine_tools.c   # Fork handling and utility routines
+│       ├── philo_routine.c         # Philosopher behavior routines
+│       └── philo_utils.c           # Utility functions for timing and printing
+├── Makefile                        # Compilation rules
+├── README.md                       # Project documentation
+├── .gitignore                      # Git ignore file
+├── start.sh                        # Script to launch tests
+└── Sujet en PDF.pdf                # Original subject description
 ```
 
-⸻
+---
 
-## 📝 Norm and Submission
-	•	The project is written in C and must adhere to the 42 School coding standard (Norme).
-	•	All dynamically allocated memory must be freed; no global variables are allowed.
-	•	Submission: Only files within the assigned Git repository will be evaluated.
+## ⌨️ Controls
 
-⸻
+| Arguments          | Description                               |
+|--------------------|-------------------------------------------|
+| `CTRL+C`  | Stop simulation manually (terminal)       |
 
-👤 Author
--   **vbonnard** (<vbonnard@student.42perpignan.fr>)
+---
 
-⸻
+## 📜 Author
 
-## ℹ️ Notes
+- **vbonnard** (<vbonnard@student.42perpignan.fr>)
 
-This project is part of the 42 School curriculum and focuses on multithreading and synchronization using mutexes. The bonus part (using processes and semaphores) is only evaluated if the mandatory part is fully functional.
+---
 
-If you encounter any issues or have suggestions, please feel free to contact me or contribute improvements!
+## 📌 Note
 
-⸻
-
-Feel free to modify the author information and any details to suit your project requirements.
+This project was developed as part of **42 School**, focusing on thread synchronization, mutex handling, and efficient multi-threaded programming practices. If you encounter issues or have ideas for improvements, feel free to contribute! 🚀
